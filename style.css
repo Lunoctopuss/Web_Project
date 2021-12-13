@@ -65,3 +65,7 @@ nav {
 .button {
     cursor: pointer;
     }
+
+.rock2 {
+    position: relative; top: -55px;
+}
