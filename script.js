@@ -8,7 +8,8 @@ timeline
 .fromTo('.bg', {y: -50}, {y: 0}, '-=3')
 .to('.content', 3, {top:'0%'}, '-=3')
 .fromTo('.content-images', {opacity:0}, {opacity:1, duration: 3})
-.fromTo('.text', {opacity: 0}, {opacity: 1, duration: 2});
+.fromTo('.text', {opacity: 0}, {opacity: 1, duration: 2})
+.fromTo('footer', {opacity: 0}, {opacity: 1, duration: 2});
 
 let scene = new ScrollMagic.Scene({
     triggerElement: 'section',
