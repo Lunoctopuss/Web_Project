@@ -38,7 +38,7 @@ nav {
     height: 100%;
 }
 
-#transition-image {
+#trans1 {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -46,7 +46,7 @@ nav {
     transition: opacity 0.5s ease;
 }
 
-#transition-image:hover {
+#trans1:hover {
     opacity: 1;
 }
 
@@ -65,7 +65,7 @@ nav {
 .main-title {
     position: absolute;
     top: 30%;
-    right: 45%;
+    right: 50%;
     font-size: 6rem;
 }
 
@@ -100,6 +100,7 @@ nav {
 
 .button {
     cursor: pointer;
+    text-decoration: none;
     }
 
 .rock2 {
@@ -116,3 +117,28 @@ footer .fa:hover {
     color: #4a4a4a;
     transition: color 0.3s ease-in;
 }
+
+.button1 {
+    font-size: 1rem;
+    border-radius: 2rem;
+    color: black;
+    background-color: blanchedalmond;
+    text-decoration: none;
+    padding:0.35em 0.65em;
+    border:0.1em solid #FFFFFF;
+    display: block;
+    max-width: 90px;
+    margin: auto;
+    text-align: center;
+    cursor: pointer;
+}
+
+.button1:hover{
+    color:#000000;
+    background-color:#FFFFFF;
+}
+
+/* iframe{
+    margin:0 auto;
+    display:block;
+} */
