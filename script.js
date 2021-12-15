@@ -1,25 +1,45 @@
+// scroll magic allows to trigger animations when we scroll, controller to initialise 
+// .Controller comes from the scroll magic library
 let controller = new ScrollMagic.Controller(); 
 // CASE SENSTITIVE
 let timeline = new TimelineMax();
 
-timeline
-.to('.rock2', 3, {y: -200})
-.to('.ja', 3, {y: -100}, '-=3')
-.fromTo('.bg', {y: -50}, {y: 0}, '-=3')
-.to('.content', 3, {top:'0%'}, '-=3')
-.fromTo('.content-images', {opacity:0}, {opacity:1, duration: 3})
-.fromTo('.text', {opacity: 0}, {opacity: 1, duration: 2})
-.fromTo('footer', {opacity: 0}, {opacity: 1, duration: 2})
-.fromTo('.button1', {opacity: 0}, {opacity: 1, duration: 1});
+// timeline helps to chain all the animations and control them as a whole
+// .TimelineMax comes from the gsap library
 
+timeline
+    // the first parameter is the element
+    // 3 is the duration of the animation
+    // timeline lets us to go on with other .to's
+    .to('#rock2', 3, {y: -200})
+    // -=3 to animate together
+    .to('#ja', 3, {y: -100}, '-=3')
+    // we are pushing the starting position of bg up and then down to 0, so you can't the background behind the layer
+    // .to('#bg', 3, {y: 50}, '-=3')
+    .fromTo('#bg', {y: -50}, {y: 0}, '-=3')
+    // we are moving content so it covers up the bottom of the layers
+    // we are moving the content all the way to the top of the page
+    .to('#content', 3, {top:'0%'}, '-=3')
+    // from to defines starting point of opacity 0 to opacity 1, and how fast it is 
+    .fromTo('#content-images', {opacity: 0}, {opacity: 1, duration: 3})
+    .fromTo('.text', {opacity: 0}, {opacity: 1, duration: 2})
+    .fromTo('footer', {opacity: 0}, {opacity: 1, duration: 2})
+    .fromTo('#button1', {opacity: 0}, {opacity: 1, duration: 1});
+
+// add the scene to a controller - we want to hook this to scrolling
 let scene = new ScrollMagic.Scene({
     triggerElement: 'body',
+    // duration of the whole scroll, how long you have to scroll to get animations
     duration: '160%',
+    // where do you want to trigger animation - we want as soon as we get to the body
     triggerHook: 0,
 })
 
+// hook up the animation to the scene
 .setTween(timeline)
+// we pin to the body so the other content can move on top -  we added position absolute
 .setPin('body')
+// we add it to the controller
 .addTo(controller);
 
 
